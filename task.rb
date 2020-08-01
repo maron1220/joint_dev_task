@@ -106,6 +106,16 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+  i=0
+
+  while i < foods.length
+    if foods[i].include?("うに") then
+      puts("好物です")
+    else
+      puts("まぁまぁ好きです")
+    end
+    i=i+1
+  end
 
 end
 
@@ -113,14 +123,22 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-
+  newsports = sports.flatten
+  likesports = newsports.uniq
+  
+  puts("ユーザーの趣味一覧")
+  i = 0
+  while i<likesports.length
+    puts("No#{i+1} #{likesports[i]}")
+    i=i+1
+  end
 end
 
 def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
-
+  puts(data[:user][:name])
 end
 
 def q13
@@ -128,14 +146,15 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-
+  new_data = user_data.merge(update_data)
+  puts(new_data)
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  p data.keys
 end
 
 def q15
@@ -143,7 +162,16 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-
+  def containkey(array)
+    if array.include?(:age) then
+      puts("OK")
+    else
+      puts("NG")
+    end
+  end
+  
+  containkey(data1.keys)
+  containkey(data2.keys)
 end
 
 def q16
@@ -155,6 +183,11 @@ def q16
   ]
 
   # 以下に回答を記載
+  i = 0
+  while i < users.length
+    puts("私の名前は#{users[i][:name]}です。年齢は#{users[i][:age]}歳です。")
+    i = i+1
+  end
 
 end
 
