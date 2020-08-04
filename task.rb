@@ -191,28 +191,7 @@ def q16
 
 end
 
-class UserQ17
-  # 以下に回答を記載
 
-  attr_reader :name
-  attr_reader :age
-  attr_reader :jender 
-
-  def initialize(name,age,jender)
-    @name = name
-    @age = age
-    @jender = jender
-  end
-
-  
-
-  def info
-    puts("名前:#{name}")
-    puts("年齢:#{age}")
-    puts("性別: #{gender}")
-  end
-
-end
 
 class UserQ17
   # 以下に回答を記載
@@ -226,6 +205,15 @@ class UserQ17
     @gender = params[:gender]
     
   end
+
+def info
+    puts <<~EOS
+    名前:#{name}
+    年齢:#{age}
+    性別: #{gender}
+    EOS
+  end
+  
 end
 
 def q17
@@ -275,7 +263,7 @@ class Item
 
   attr_reader :name
 
-  def initialize(**params)
+  def initialize()
     @name = params[:name]
   end
 
@@ -289,13 +277,45 @@ end
 
 class UserQ20
   # 以下に回答を記載
+ attr_reader :name,:age
 
+ def initialize(**params)
+  @name = params[:name]
+  @age = params[:age]
+ end
   
   
 end
 
 class Zoo
   # 以下に回答を記載
+
+  attr_reader :name, :entry_fee
+
+  def initialize(**params)
+    @name = params[:name]
+    @entry_fee = params[:entry_fee]
+    
+  end
+
+  def info_entry_fee(user)
+    @name = user.name
+    @age = user.age
+    @infant = @entry_fee[:infant]
+    @children = @entry_fee[:children]
+    @adult = @entry_fee[:adult]
+    @senior = @entry_fee[:senior]
+    case @age 
+    when 0..5
+      puts("#{@name}さんの入場料金は#{@infant}円です。")
+    when 6..12
+      puts("#{@name}さんの入場料金は#{@children}円です。")
+    when 13..64
+      puts("#{@name}さんの入場料金は#{@adult}円です。")
+    else
+      puts("#{@name}さんの入場料金は#{@senior}円です。")
+    end
+  end
 
 end
 
