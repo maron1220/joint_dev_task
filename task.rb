@@ -194,9 +194,42 @@ end
 class UserQ17
   # 以下に回答を記載
 
+  attr_reader :name
+  attr_reader :age
+  attr_reader :jender 
+
+  def initialize(name,age,jender)
+    @name = name
+    @age = age
+    @jender = jender
+  end
+
+  
+
+  def info
+    puts("名前:#{name}")
+    puts("年齢:#{age}")
+    puts("性別: #{gender}")
+  end
+
+end
+
+class UserQ17
+  # 以下に回答を記載
+
+  attr_reader :name,:age,:gender
+  
+
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
+    @gender = params[:gender]
+    
+  end
 end
 
 def q17
+
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
   user1 = UserQ17.new(name: "神里", age: 32, gender: "男")
   user2 = UserQ17.new(name: "あじー", age: 32, gender: "男")
@@ -237,6 +270,8 @@ end
 class UserQ20
   # 以下に回答を記載
 
+  
+  
 end
 
 class Zoo
