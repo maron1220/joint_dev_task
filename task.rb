@@ -273,9 +273,12 @@ end
 class Item
   # 以下を修正して下さい
 
-  def initialize(name)
-    @name = name
+  attr_reader :name
+
+  def initialize(**params)
+    @name = params[:name]
   end
+
 end
 
 def q19
